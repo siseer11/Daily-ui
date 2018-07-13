@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.wrapper {
+  height: 100vh;
+  background-color: #ff7b73;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+.form-wrapper {
+  background-color: #fff;
+  border-radius: 50px;
+  transition: 0.3s cubic-bezier(0.26, 0.87, 0.51, 1.18) width;
+  width: 150px;
+  height: 50px;
+}
+.form-wrapper.expanded {
+  width: 300px;
+}
+.form-wrapper.expanded .status {
+  display: none;
+}
+.form-wrapper.expanded form {
+  display: block;
+}
+.form-wrapper.sent .status {
+  display: flex;
+}
+.form-wrapper.sent .status .thank-you {
+  display: block;
+  animation: 0.2s 0.3s comeDown cubic-bezier(0, 0.15, 0.09, 1.63) forwards;
+}
+.form-wrapper.sent .status .notify-me {
+  display: none;
+}
+.form-wrapper.sent form {
+  display: none;
+}
+.form-wrapper.expanded.sent .status {
+  display: none;
+}
+.form-wrapper.expanded.sent form {
+  display: block;
+}
+.form-wrapper.expanded.sent form input {
+  opacity: 0;
+}
+form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease width;
+}
+form input[type='email'] {
+  border: 0;
+  height: 100%;
+  width: calc(100% - 80px);
+  padding: 20px 0 20px 20px;
+  background: transparent;
+  z-index: 2;
+  font-weight: 600;
+  color: #ff7b73;
+  position: relative;
+  box-sizing: border-box;
+}
+form input[type="submit"] {
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #fcd5d3;
+  z-index: 3;
+  transition: 0.3s linear color;
+}
+form.correct input[type='submit'] {
+  cursor: pointer;
+}
+form #send {
+  position: absolute;
+  top: 7%;
+  right: 5px;
+  background: #ff7b73;
+  border: 0;
+  height: 86%;
+  border-radius: 50px;
+  width: 80px;
+  transition: 0.3s cubic-bezier(0, 0.57, 0.52, 1.32) all;
+  transform: scale(0);
+  animation: pop 0.3s 0.3s cubic-bezier(0, 0.37, 0.38, 1.41) forwards;
+}
+form.focused .fake-place-holder {
+  transform: scale(0.5);
+  opacity: 0;
+}
+.fake-place-holder {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  top: 0;
+  left: 20px;
+  color: #fc9f9d;
+  transform: scale(0);
+  animation: pop 0.3s 0.3s cubic-bezier(0, 0.37, 0.38, 1.41) forwards;
+  transition: 0.3s cubic-bezier(0, 0.37, 0.31, 1.04) all;
+}
+form {
+  display: none;
+  transition: 0.4s cubic-bezier(0, 0.37, 0.31, 1.04) all;
+}
+form.correct input[type="submit"] {
+  color: #fff;
+}
+.status {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #ff7b73;
+  transition: 0.2s cubic-bezier(0, 0.37, 0.31, 1.04) all;
+}
+.status .notify-me {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+}
+.status .thank-you {
+  display: none;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.form-wrapper.sent .thank-you {
+  display: inline;
+}
+.inspired {
+  position: absolute;
+  bottom: 10px;
+  font-size: 13px;
+  color: #8e443f;
+  width: 100%;
+  text-align: center;
+}
+@-moz-keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+@-o-keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+@-moz-keyframes comeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes comeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes comeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes comeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,95 @@
+dark-purple = #1e1737
+pink = #fd6465
+
+flexCenter()
+  display flex
+  align-items center
+  justify-content center
+
+*
+  margin 0
+  padding 0
+  
+svg.filter
+  display none
+  
+
+  
+body
+  width 100%
+  height 100vh
+  background-color #1e1737
+  flexCenter()
+  
+.wrapper
+  overflow hidden
+  width 300px
+  height 70vh
+  min-height 250px
+  max-height 600px
+  background-color rgba(#fff , .1)
+  position relative
+  .box-fix
+    position absolute
+    width 100%
+    height 52px
+    bottom 0
+    left 0
+    background-color #fd6465
+  .wrapper-inner
+    filter url(#goo)
+    position relative
+    width 100%
+    height 100%
+  .box
+    position absolute
+    bottom 0
+    left 0
+    width 100%
+    height 43px
+    background-color pink
+  .buble
+    position absolute
+    width 60px
+    height 50px
+    background pink
+    bottom 20px 
+    left 8px
+    border-radius 50%
+    transition 0.2s cubic-bezier(0.44,-0.35, 0.48, 1.5) all
+  
+.inspired
+  position absolute
+  bottom 10px
+  left 0
+  width 100%
+  flexCenter()
+  font-size 15px
+  color tint( dark-purple , 20 )
+  a
+    color tint( dark-purple , 30 )
+    
+
+.box-fix
+  display flex
+  li
+    user-select none
+    -webkit-tap-highlight-color transparent
+    list-style none
+    cursor pointer
+    flex-grow 1
+    height 100%
+    color #fff
+    flexCenter()
+    &.active
+      cursor initial
+      svg
+        transform translateY(-10px) scale(1.1)
+        fill #fff
+        transition-delay .1s
+    svg
+      width 25px
+      height 25px
+      fill rgba(#fff , .3)
+      transition 0.2s 0s cubic-bezier(0.53, -0.07, 0.21, 1.98) transform
+      

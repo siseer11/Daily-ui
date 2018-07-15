@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  outline: none;
+}
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+svg {
+  width: 30px;
+}
+#check-mark {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(50% - 15px);
+  stroke-dasharray: 166px;
+  stroke-dashoffset: 175px;
+}
+.form-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+.form-wrapper,
+.pop-form {
+  color: #fff;
+  background-color: #ededed;
+  width: 250px;
+  height: 60px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pop-form {
+  z-index: 3;
+  background-color: #eb4747;
+  font-weight: 600;
+  cursor: pointer;
+}
+.done {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ededed;
+  color: #8d867e;
+  padding: 0px 30px 0px 60px;
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: 600;
+  opacity: 0;
+}
+form {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: 0;
+}
+form input[type='email'] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ededed;
+  color: #8d867e;
+  padding: 0 60px 0 20px;
+}
+form .submit-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #eb4747;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .submit-wrapper svg#plane {
+  fill: #fff;
+  width: 20px;
+  transform: translate(-100px, 100px);
+  transition: 0.3s 0.6s cubic-bezier(0.07, 0.35, 0.27, 1.26) all;
+}
+form .submit-wrapper input[type='submit'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+.wrapper.open .pop-form {
+  transform: translateX(100%);
+  transition: 0.3s 0.3s cubic-bezier(0, 0, 0, 0.5) all;
+}
+.wrapper.open .pop-form p {
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0, 0, 0, 1.2) all;
+}
+.wrapper.open svg#plane {
+  transform: translate(-2px, 0);
+}
+.wrapper.open.sent input[type='email'] {
+  opacity: 0;
+  transition: 0.4s 0.5s cubic-bezier(0, 0.58, 0.55, 1.15) opacity;
+}
+.wrapper.open.sent input[type='submit'] {
+  display: none;
+}
+.wrapper.open.sent svg#plane {
+  transition: 0.4s cubic-bezier(0.57, -0.79, 0.22, 1.2) all;
+  transform: translate(50px, -50px);
+}
+.wrapper.open.sent form .submit-wrapper {
+  right: calc(100% - 60px);
+  background: #47e0b0;
+  transition: 0.4s 0.5s cubic-bezier(0, 0.58, 0.55, 1.15) all;
+}
+.wrapper.open.sent #check-mark {
+  transition: 0.3s 0.9s all linear;
+  stroke-dashoffset: 0px;
+}
+.wrapper.open.sent .done {
+  transition: 0.3s 0.5s all linear;
+  opacity: 1;
+}
+form .submit-wrapper svg#plane.correctFilled {
+  transition: 0s;
+  opacity: 1;
+  animation: shake 0.5s cubic-bezier(0.33, 0.26, 0.32, 0.85) infinite alternate;
+}
+@-moz-keyframes shake {
+  0% {
+    transform: translate(-2px, 0px);
+  }
+  50% {
+    transform: translate(-3px, -3px);
+  }
+  100% {
+    transform: translate(2px, 1px);
+  }
+}
+@-webkit-keyframes shake {
+  0% {
+    transform: translate(-2px, 0px);
+  }
+  50% {
+    transform: translate(-3px, -3px);
+  }
+  100% {
+    transform: translate(2px, 1px);
+  }
+}
+@-o-keyframes shake {
+  0% {
+    transform: translate(-2px, 0px);
+  }
+  50% {
+    transform: translate(-3px, -3px);
+  }
+  100% {
+    transform: translate(2px, 1px);
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate(-2px, 0px);
+  }
+  50% {
+    transform: translate(-3px, -3px);
+  }
+  100% {
+    transform: translate(2px, 1px);
+  }
+}

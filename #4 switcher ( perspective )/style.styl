@@ -1,0 +1,101 @@
+lighGray = #f1f1f1
+red = #f75454
+
+*
+  margin 0
+  padding 0
+  list-style none
+  font-family sans-serif
+  font-weight 600
+  
+flexCenter()
+  display flex
+  align-items center
+  justify-content center
+  
+.wrapper
+  width 100%
+  height 100vh
+  background-color lightGray
+  perspective 200px
+  font-size 22px
+  flexCenter()
+  .button-wrapper
+    width 250px
+    height 60px
+    border-radius 50px
+    border 3px solid red
+    display flex
+    position relative
+    p
+      flex-grow 1
+      flexCenter()
+      color red
+      cursor pointer
+      
+ .active-part
+   position absolute
+   width 50%
+   height 100%
+   color lightGray
+   flexCenter()
+   perspective 300px
+     
+.holder
+   width 100%
+   height 100%
+   flexCenter()
+   position relative
+   div
+     position absolute
+     width 100%
+     height 100%
+     flexCenter()
+     background red
+     transform-origin right
+     z-index 20
+     border-radius 50px 0 0 50px
+     transition .3s cubic-bezier(0.1, 0.35, 0.35, 0.93) all
+     &.part1
+       z-index 21
+       backface-visibility hidden
+     &.part2 span
+       transform rotateY(180deg)
+       
+       
+.button-wrapper.video
+  animation right .6s .2s cubic-bezier(0, 0.33, 0.15, 1.55) forwards
+  .part1,
+  .part2
+    transform rotateY(180deg)
+    
+.button-wrapper.photo
+  animation left .6s .2s cubic-bezier(0, 0.33, 0.15, 1.55) forwards
+ 
+@keyframes right
+  40%
+    transform rotateY(12deg)
+  100%
+    transform rotateY(0deg)
+    
+@keyframes left
+  40%
+    transform rotateY(-12deg)
+  100%
+    transform rotateY(0deg)
+    
+    
+.switchers
+  z-index 30
+  width 100%
+  height 100%
+  position absolute
+  display flex
+  .switcher
+    flex-grow 1
+    
+.inspired
+  position absolute
+  bottom 10px
+  color red
+  font-size 12px
